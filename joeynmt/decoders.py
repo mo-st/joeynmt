@@ -536,8 +536,9 @@ class TransformerDecoder(Decoder):
             x = layer(x=x, memory=encoder_output,
                       src_mask=src_mask, trg_mask=trg_mask)
 
-        x = self.layer_norm(x)
+        #x = self.layer_norm(x)
         output = self.output_layer(x)
+        output = self.layer_norm(output)
 
         return output, x, None, None
 
