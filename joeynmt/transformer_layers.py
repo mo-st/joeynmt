@@ -198,6 +198,7 @@ class TransformerEncoderLayer(nn.Module):
         :param mask: input mask
         :return: output tensor
         """
+        # this is prenorm and can be left as is
         x_norm = self.layer_norm(x)
         h = self.src_src_att(x_norm, x_norm, x_norm, mask)
         h = self.dropout(h) + x
